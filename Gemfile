@@ -35,7 +35,7 @@ gem "settingslogic"
 gem "anjlab-bootstrap-rails", ">= 2.1", :require => "bootstrap-rails"
 gem "bootstrap_helper", ">= 2.1.2"
 gem "simple_form", "2.0.3"
-gem "will_paginate", "3.0.3"
+gem "kaminari"
 
 gem "high_voltage"
 

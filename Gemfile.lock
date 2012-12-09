@@ -100,6 +100,10 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.5)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -211,6 +215,7 @@ DEPENDENCIES
   factory_girl_rails
   high_voltage
   jquery-rails
+  kaminari
   mysql2
   newrelic_rpm
   open_graph_helper
@@ -226,4 +231,3 @@ DEPENDENCIES
   turbo-sprockets-rails3
   turn (~> 0.8.3)
   uglifier (>= 1.0.3)
-  will_paginate (= 3.0.3)
