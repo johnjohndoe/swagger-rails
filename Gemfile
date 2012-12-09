@@ -49,12 +49,12 @@ end
 group :development do 
   gem "capistrano"
   gem "capistrano-ext"
-  gem "cape"
-  gem "magic_encoding"
-  gem "annotate"
-  gem "powder"
-  gem "pry-nav"
-  gem "pry-remote"
+  # gem "cape"
+  # gem "magic_encoding"
+  # gem "annotate"
+  # gem "powder"
+  # gem "pry-nav"
+  # gem "pry-remote"
 end
 
 group :production do
