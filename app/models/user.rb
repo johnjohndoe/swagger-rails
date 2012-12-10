@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :docs
+
   def self.create_by_omniauth(hash, current_user)
     hash = ActiveSupport::HashWithIndifferentAccess.new hash
     user = User.send("find_by_#{hash[:provider]}_id", hash[:uid])

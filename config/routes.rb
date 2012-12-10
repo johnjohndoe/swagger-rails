@@ -7,8 +7,12 @@ SwaggerRails::Application.routes.draw do
   devise_scope :user do
     get "/logout" => "devise/sessions#destroy", :as => :user_logout
   end
+
   devise_for :users
 
-  root :to => 'high_voltage/pages#show', :id => 'welcome'
+  root :to => 'admin/docs#index'
 
+  namespace :admin do
+    resources :docs
+  end
 end
