@@ -87,3 +87,4 @@ end
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'haml'
