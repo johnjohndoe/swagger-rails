@@ -1,4 +1,37 @@
+%h1= @doc.base_path
+.doc_info
+  = render_list do |li|
+    - li << "version: #{@doc.version}"
+    - li << "name: #{@doc.name}"
+    - li << "description: #{@doc.description}"
+
 = link_to "Back", admin_docs_path, :class => "btn"
 = link_to edit_admin_doc_path(@doc), :class => "btn" do
   %i.icon-pencil
   Edit
+= link_to "Create Api", new_admin_doc_api_path(@doc), :class => "btn btn-primary"    
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th="#"
+      %th="path"
+      %th="description"
+      %th.last=""
+  %tbody
+    - @doc.apis.each do |api|
+      %tr
+        %td= api.id
+        %td= api.path
+        %td= api.description
+        %td.last
+          = link_to admin_doc_api_path(@doc, api), :class => "btn btn-mini" do
+            %i.icon-info-sign
+            Show
+          = link_to edit_admin_doc_api_path(@doc, api), :class => "btn btn-mini" do
+            %i.icon-pencil
+            Edit
+          = link_to admin_doc_api_path(@doc, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+            %i.icon-white.icon-remove
+            Delete
+  

@@ -1,0 +1,7 @@
+- api = form.object
+.form-inputs
+  = form.input :description
+  = form.input :path, :placeholder => "/products"
+.form-actions
+  = form.submit :class => "btn btn-primary"
+  = link_to "Cancel", admin_doc_apis_path(api.doc), :class => "btn"

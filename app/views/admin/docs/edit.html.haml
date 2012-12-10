@@ -1,2 +1,3 @@
 %h1= "Edit Doc ##{@doc.id} #{@doc.name}"
-= render :partial => 'form'
+= simple_form_for @doc, :url => admin_doc_path(@doc), :html => { :class => 'form-horizontal' } do |f|
+  = render :partial => 'form', :object => f

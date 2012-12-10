@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209161352) do
+ActiveRecord::Schema.define(:version => 20121210072420) do
+
+  create_table "apis", :force => true do |t|
+    t.integer  "doc_id"
+    t.string   "path"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "apis", ["doc_id"], :name => "index_apis_on_doc_id"
 
   create_table "docs", :force => true do |t|
     t.string   "name"
