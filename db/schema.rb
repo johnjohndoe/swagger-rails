@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210072420) do
+ActiveRecord::Schema.define(:version => 20121210073709) do
 
   create_table "apis", :force => true do |t|
     t.integer  "doc_id"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20121210072420) do
 
   add_index "docs", ["name"], :name => "index_docs_on_name"
   add_index "docs", ["user_id"], :name => "index_docs_on_user_id"
+
+  create_table "operations", :force => true do |t|
+    t.integer  "api_id"
+    t.string   "http_method"
+    t.string   "nickname"
+    t.string   "response_class"
+    t.string   "summary"
+    t.string   "note"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "operations", ["api_id"], :name => "index_operations_on_api_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",               :default => "", :null => false

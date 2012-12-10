@@ -14,7 +14,9 @@ SwaggerRails::Application.routes.draw do
 
   namespace :admin do
     resources :docs do
-      resources :apis
+      resources :apis do
+        resources :operations
+      end
     end
   end
 end
