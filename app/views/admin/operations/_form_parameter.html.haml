@@ -1,0 +1,19 @@
+.form-inline
+  - if form_parameter.object.new_record?
+    = form_parameter.link_to_remove :class => "btn btn-mini" do
+      %i.icon-minus
+      Delete
+  - else
+    %label
+      = form_parameter.check_box :_destroy
+      Delete
+  = form_parameter.input_field :param_type, :as => :select, :collection => Parameter::PARAM_TYPES, :class => "input-small", :include_blank => "parameter type"
+  = form_parameter.input_field :name, :placeholder => :name, :class => "input-small"
+  = form_parameter.input_field :data_type, :as => :select, :collection => Parameter::DATA_TYPES, :class => "input-small", :include_blank => "data type"
+  = form_parameter.input_field :description, :placeholder => :description, :class => "input-medium"
+  %label
+    = form_parameter.input_field :required
+    required
+  %label
+    = form_parameter.input_field :allow_multiple
+    allow multiple

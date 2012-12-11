@@ -5,6 +5,7 @@
   = form.input :summary
   = form.input :note
   = form.input :response_class
+  = render :partial => "nested_parameters", :object => form, :as => :form
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", admin_doc_api_operations_path(operation.api.doc, operation.api), :class => "btn"

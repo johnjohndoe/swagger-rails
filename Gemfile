@@ -88,3 +88,4 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'haml'
+gem 'nested_form', "~> 0.3.1"
