@@ -1,8 +1,8 @@
 class Admin::ApisController < Admin::BaseController
+  before_filter :clean_parameters_attributes, :only => [:update, :create]
   before_filter :get_doc
   before_filter :get_resource
   before_filter :get_api, :except => [:index]
-  before_filter :clean_parameters_attributes, :only => [:update, :create]
 
   def index
     render "admin/resources/show"
