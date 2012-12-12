@@ -16,7 +16,7 @@
         %td= model.name
         %td= model.description
         %td.last
-          = link_to edit_admin_doc_path(@doc), :class => "btn btn-mini" do
+          = link_to edit_admin_doc_model_path(@doc, model), :class => "btn btn-mini" do
             %i.icon-pencil
             Edit
           = link_to admin_doc_model_path(@doc, model), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
