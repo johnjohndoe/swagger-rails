@@ -3,4 +3,14 @@ class Resource < ActiveRecord::Base
   belongs_to :doc
   has_many :apis
   validates_presence_of :doc_id
+
+  def to_json
+    {
+      :apiVersion => doc.version,
+      :base_path => doc.base_path,
+      :swaggerVersion => "1.1",
+      :apis => apis.map{ |api| api.to_json }
+    }
+  end
+
 end

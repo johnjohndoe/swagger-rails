@@ -2,7 +2,7 @@
   = form.fields_for :parameters do |form_parameter|
     = render :partial => "form_parameter", :object => form_parameter
 .new_parameter
-  = form.fields_for :parameters, form.object.parameters.new do |form_parameter|
+  = form.fields_for :parameters, form.object.parameters.build do |form_parameter|
     = render :partial => "form_parameter", :object => form_parameter
   = form.link_to_add :parameters, :class => "btn btn-mini" do
     %i.icon-plus

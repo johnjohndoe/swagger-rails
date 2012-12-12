@@ -17,7 +17,7 @@ class Doc < ActiveRecord::Base
       :apiVersion => version,
       :swaggerVersion => "1.1",
       :basePath => base_path,
-      :apis => apis.map{ |api| { :path => "/docs/#{id}/apis#{api.path}", :description => api.description } },
+      :apis => resources.map{ |resource| { :path => "/docs/#{id}/resources/#{resource.name}.{format}", :description => resource.description } },
       :models => []
     }
   end

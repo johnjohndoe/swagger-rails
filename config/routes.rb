@@ -13,7 +13,7 @@ SwaggerRails::Application.routes.draw do
   root :to => 'admin/docs#index'
 
   resources :docs do
-    resources :apis
+    resources :resources
   end
   
 
