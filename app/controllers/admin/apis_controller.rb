@@ -2,6 +2,7 @@ class Admin::ApisController < Admin::BaseController
   before_filter :get_doc
   before_filter :get_resource
   before_filter :get_api, :except => [:index]
+  before_filter :clean_parameters_attributes, :only => [:update, :create]
 
   def index
     render "admin/resources/show"
@@ -52,4 +53,14 @@ class Admin::ApisController < Admin::BaseController
   def get_api
     @api = params[:id] ? @resource.apis.find(params[:id]) : @resource.apis.new(params[:api])
   end
+
+  def clean_parameters_attributes
+    if params[:api][:parameters_attributes]
+      params[:api][:parameters_attributes] = params[:api][:parameters_attributes].select do |k, v|
+        v.delete :_destroy
+        Parameter.new(v.merge(:api_id => params[:id])).valid?
+      end
+    end
+  end
+
 end
