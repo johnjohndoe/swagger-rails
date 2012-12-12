@@ -11,17 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212041857) do
+ActiveRecord::Schema.define(:version => 20121212042821) do
 
   create_table "apis", :force => true do |t|
-    t.integer  "doc_id"
+    t.integer  "resource_id"
     t.string   "path"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "http_method"
+    t.string   "nickname"
+    t.string   "response_class"
+    t.string   "summary"
+    t.string   "note"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "apis", ["doc_id"], :name => "index_apis_on_doc_id"
+  add_index "apis", ["resource_id"], :name => "index_apis_on_resource_id"
 
   create_table "docs", :force => true do |t|
     t.string   "name"
@@ -50,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20121212041857) do
   add_index "operations", ["api_id"], :name => "index_operations_on_api_id"
 
   create_table "parameters", :force => true do |t|
-    t.integer  "operation_id"
+    t.integer  "api_id"
     t.string   "param_type"
     t.string   "name"
     t.string   "description"
@@ -62,14 +66,15 @@ ActiveRecord::Schema.define(:version => 20121212041857) do
     t.datetime "updated_at",       :null => false
   end
 
-  add_index "parameters", ["operation_id"], :name => "index_parameters_on_operation_id"
+  add_index "parameters", ["api_id"], :name => "index_parameters_on_api_id"
 
   create_table "resources", :force => true do |t|
     t.integer  "doc_id"
     t.string   "name"
-    t.integer  "sort",       :default => 999
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.string   "description"
+    t.integer  "sort",        :default => 999
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "resources", ["doc_id"], :name => "index_resources_on_doc_id"

@@ -6,7 +6,6 @@ class Doc < ActiveRecord::Base
   validates_presence_of :base_path
 
   belongs_to :user
-  has_many :apis, :dependent => :destroy
   has_many :resources, :dependent => :destroy, :order => "sort ASC"
 
   def version

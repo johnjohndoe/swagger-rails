@@ -1,33 +1,35 @@
-%h1= @api.full_path
+%h1= @resource.name
 .doc_info
   = render_list do |li|
-    - li << "description: #{@api.description}"
+    - li << "description: #{@resource.description}"
 
-= link_to "Back", admin_doc_apis_path(@doc), :class => "btn"
-= link_to edit_admin_doc_api_path(@doc, @api), :class => "btn" do
+= link_to "Back", admin_doc_resources_path(@doc), :class => "btn"
+= link_to edit_admin_doc_resource_path(@doc, @resource), :class => "btn" do
   %i.icon-pencil
   Edit
 
-= link_to "Create Operation", new_admin_doc_api_operation_path(@doc, @api), :class => "btn btn-primary"    
+= link_to "Create Api", new_admin_doc_resource_api_path(@doc, @resource), :class => "btn btn-primary"    
 
 %table.table.table-hover
   %thead
     %tr
       %th="#"
       %th="Method"
+      %th="Path"
       %th="nickname"
       %th.last=""
   %tbody
-    - @api.operations.each do |operation|
+    - @resource.apis.each do |api|
       %tr
-        %td= operation.id
-        %td= operation.http_method
-        %td= operation.nickname
+        %td= api.id
+        %td= api.http_method
+        %td= api.path
+        %td= api.nickname
         %td.last
-          = link_to edit_admin_doc_api_operation_path(@doc, @api, operation), :class => "btn btn-mini" do
+          = link_to edit_admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini" do
             %i.icon-pencil
             Edit
-          = link_to admin_doc_api_operation_path(@doc, @api, operation), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+          = link_to admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete
   

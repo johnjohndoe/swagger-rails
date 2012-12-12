@@ -1,7 +1,12 @@
 - api = form.object
 .form-inputs
-  = form.input :description
-  = form.input :path, :placeholder => "/products"
+  = form.input :http_method, :as => :select, :collection => Api::HTTP_METHODS
+  = form.input :path
+  = form.input :nickname
+  = form.input :summary
+  = form.input :note
+  = form.input :response_class
+  = render :partial => "nested_parameters", :object => form, :as => :form
 .form-actions
   = form.submit :class => "btn btn-primary"
-  = link_to "Cancel", admin_doc_apis_path(api.doc), :class => "btn"
+  = link_to "Cancel", admin_doc_resource_apis_path(api.resource.doc, api.resource), :class => "btn"
