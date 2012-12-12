@@ -12,7 +12,11 @@ class Parameter < ActiveRecord::Base
       :description => description,
       :dataType => data_type,
       :required => required,
-      :allowMultiple => allow_multiple
+      :allowMultiple => allow_multiple,
+      :allowableValues => {
+        :valueType => "LIST",
+        :values => allowable_values.gsub(", ", ",").split(",")
+      }
     }
   end
 end
