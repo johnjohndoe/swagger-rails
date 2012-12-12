@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212162022) do
+ActiveRecord::Schema.define(:version => 20121212170052) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(:version => 20121212162022) do
 
   add_index "error_responses", ["api_id", "code"], :name => "index_error_responses_on_api_id_and_code"
   add_index "error_responses", ["api_id"], :name => "index_error_responses_on_api_id"
+
+  create_table "models", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "doc_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "models", ["doc_id", "name"], :name => "index_models_on_doc_id_and_name"
+  add_index "models", ["doc_id"], :name => "index_models_on_doc_id"
 
   create_table "parameters", :force => true do |t|
     t.integer  "api_id"

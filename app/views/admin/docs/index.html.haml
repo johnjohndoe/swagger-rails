@@ -19,7 +19,10 @@
         %td.last
           = link_to admin_doc_path(doc), :class => "btn btn-mini" do
             %i.icon-info-sign
-            Show
+            Resources
+          = link_to admin_doc_models_path(doc), :class => "btn btn-mini" do
+            %i.icon-info-sign
+            Models
           = link_to edit_admin_doc_path(doc), :class => "btn btn-mini" do
             %i.icon-pencil
             Edit

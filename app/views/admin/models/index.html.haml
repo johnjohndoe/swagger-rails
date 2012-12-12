@@ -1,0 +1,24 @@
+%h1="Model list"
+= link_to "Back to Doc List", admin_docs_path, :class => "btn"
+= link_to "Create", new_admin_doc_model_path(@doc), :class => "btn btn-primary"    
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th="#"
+      %th="name"
+      %th="description"
+      %th.last=""
+  %tbody
+    - @models.each do |model|
+      %tr
+        %td= model.id
+        %td= model.name
+        %td= model.description
+        %td.last
+          = link_to edit_admin_doc_path(@doc), :class => "btn btn-mini" do
+            %i.icon-pencil
+            Edit
+          = link_to admin_doc_model_path(@doc, model), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+            %i.icon-white.icon-remove
+            Delete
