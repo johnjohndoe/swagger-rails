@@ -3,6 +3,7 @@ class Resource < ActiveRecord::Base
   belongs_to :doc
   has_many :apis
   validates_presence_of :doc_id
+  validates_uniqueness_of :name, :scope => [:doc_id]
 
   def to_json
     {
