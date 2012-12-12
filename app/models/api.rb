@@ -36,6 +36,10 @@ class Api < ActiveRecord::Base
 
   private 
 
+  def nickname
+    "api_#{id}"
+  end
+
   def sync_doc_id
     self.doc_id = resource.doc_id unless doc_id
   end

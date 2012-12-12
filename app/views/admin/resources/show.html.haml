@@ -16,7 +16,6 @@
       %th="#"
       %th="Method"
       %th="Path"
-      %th="nickname"
       %th.last=""
   %tbody
     - @resource.apis.each do |api|
@@ -24,7 +23,6 @@
         %td= api.id
         %td= api.http_method
         %td= api.path
-        %td= api.nickname
         %td.last
           = link_to edit_admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini" do
             %i.icon-pencil
