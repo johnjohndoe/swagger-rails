@@ -57,8 +57,7 @@ class Admin::ApisController < Admin::BaseController
   def clean_parameters_attributes
     if params[:api][:parameters_attributes]
       params[:api][:parameters_attributes] = params[:api][:parameters_attributes].select do |k, v|
-        v.delete :_destroy
-        Parameter.new(v.merge(:api_id => params[:id])).valid?
+        v[:name].present?
       end
     end
   end
