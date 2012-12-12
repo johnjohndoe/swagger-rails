@@ -9,29 +9,29 @@
 = link_to edit_admin_doc_path(@doc), :class => "btn" do
   %i.icon-pencil
   Edit
-= link_to "Create Api", new_admin_doc_api_path(@doc), :class => "btn btn-primary"    
+= link_to "Create Resource", new_admin_doc_resource_path(@doc), :class => "btn btn-primary"    
 
 %table.table.table-hover
   %thead
     %tr
       %th="#"
-      %th="path"
-      %th="description"
+      %th="name"
+      %th="sort"
       %th.last=""
   %tbody
-    - @doc.apis.each do |api|
+    - @doc.resources.each do |resource|
       %tr
-        %td= api.id
-        %td= api.path
-        %td= api.description
+        %td= resource.id
+        %td= resource.name
+        %td= resource.sort
         %td.last
-          = link_to admin_doc_api_path(@doc, api), :class => "btn btn-mini" do
+          = link_to admin_doc_resource_path(@doc, resource), :class => "btn btn-mini" do
             %i.icon-info-sign
             Show
-          = link_to edit_admin_doc_api_path(@doc, api), :class => "btn btn-mini" do
+          = link_to edit_admin_doc_resource_path(@doc, resource), :class => "btn btn-mini" do
             %i.icon-pencil
             Edit
-          = link_to admin_doc_api_path(@doc, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+          = link_to admin_doc_resource_path(@doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete
   

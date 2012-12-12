@@ -1,0 +1,7 @@
+- resource = form.object
+.form-inputs
+  = form.input :name, :placeholder => "product"
+  = form.input :sort
+.form-actions
+  = form.submit :class => "btn btn-primary"
+  = link_to "Cancel", admin_doc_resources_path(resource.doc), :class => "btn"

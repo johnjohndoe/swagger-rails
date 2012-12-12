@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210075341) do
+ActiveRecord::Schema.define(:version => 20121212041857) do
 
   create_table "apis", :force => true do |t|
     t.integer  "doc_id"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(:version => 20121210075341) do
   end
 
   add_index "parameters", ["operation_id"], :name => "index_parameters_on_operation_id"
+
+  create_table "resources", :force => true do |t|
+    t.integer  "doc_id"
+    t.string   "name"
+    t.integer  "sort",       :default => 999
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "resources", ["doc_id"], :name => "index_resources_on_doc_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",               :default => "", :null => false

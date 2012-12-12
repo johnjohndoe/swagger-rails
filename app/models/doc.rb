@@ -7,6 +7,7 @@ class Doc < ActiveRecord::Base
 
   belongs_to :user
   has_many :apis, :dependent => :destroy
+  has_many :resources, :dependent => :destroy, :order => "sort ASC"
 
   def version
     api_version
