@@ -5,7 +5,13 @@
   = form.input :summary
   = form.input :note
   = form.input :response_class
-  = render :partial => "nested_parameters", :object => form, :as => :form
+  .control-group
+    %label.control-label= "Error Responses"
+    .controls
+      = render :partial => "nested_error_reponses", :object => form, :as => :form
+  %h3="Parameters"
+  .control-group
+    = render :partial => "nested_parameters", :object => form, :as => :form
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", admin_doc_resource_apis_path(api.resource.doc, api.resource), :class => "btn"

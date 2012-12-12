@@ -3,6 +3,8 @@ class Api < ActiveRecord::Base
   belongs_to :resource
   has_many :parameters, :dependent => :destroy
   accepts_nested_attributes_for :parameters, :allow_destroy => true
+  has_many :error_responses, :dependent => :destroy
+  accepts_nested_attributes_for :error_responses, :allow_destroy => true
   validates_presence_of :path
   validates_presence_of :resource_id
   validates_presence_of :doc_id
@@ -29,7 +31,7 @@ class Api < ActiveRecord::Base
         :summary => summary,
         :notes => note,
         :parameters => parameters.map{ |parameter| parameter.to_json },
-        :errorResponses => []
+        :errorResponses => error_responses.map{ |error_response| error_response.to_json }
       }]
     }
   end

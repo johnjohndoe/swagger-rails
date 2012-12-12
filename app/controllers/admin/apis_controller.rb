@@ -1,5 +1,5 @@
 class Admin::ApisController < Admin::BaseController
-  before_filter :clean_parameters_attributes, :only => [:update, :create]
+  before_filter :clean_nested_attributes, :only => [:update, :create]
   before_filter :get_doc
   before_filter :get_resource
   before_filter :get_api, :except => [:index]
@@ -55,10 +55,13 @@ class Admin::ApisController < Admin::BaseController
     @api = params[:id] ? @resource.apis.find(params[:id]) : @resource.apis.new(params[:api])
   end
 
-  def clean_parameters_attributes
-    if params[:api] && params[:api][:parameters_attributes]
-      params[:api][:parameters_attributes] = params[:api][:parameters_attributes].select do |k, v|
-        v[:name].present?
+  def clean_nested_attributes
+    return unless params[:api]
+    { :parameters => :name, :error_responses => :code }.each do |nested_name, check_field|
+      key = "#{nested_name}_attributes"
+      next unless params[:api][key]
+      params[:api][key] = params[:api][key].select do |k, values|
+        values[check_field].present?
       end
     end
   end
