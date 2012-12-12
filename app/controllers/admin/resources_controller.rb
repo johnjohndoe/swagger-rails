@@ -25,6 +25,7 @@ class Admin::ResourcesController < Admin::BaseController
   end
 
   def update
+    @resource.send params[:sort] if params[:sort]
     if @resource.update_attributes params[:resource]
       redirect_to admin_doc_resources_path(@doc), :notice => "update success"
     else

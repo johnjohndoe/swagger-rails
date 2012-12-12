@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212122829) do
+ActiveRecord::Schema.define(:version => 20121212135122) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20121212122829) do
     t.string   "response_class"
     t.string   "summary"
     t.string   "note"
+    t.integer  "sort"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121212122829) do
   add_index "apis", ["doc_id"], :name => "index_apis_on_doc_id"
   add_index "apis", ["path", "doc_id", "http_method"], :name => "index_apis_on_path_and_doc_id_and_http_method"
   add_index "apis", ["resource_id"], :name => "index_apis_on_resource_id"
+  add_index "apis", ["sort", "doc_id"], :name => "index_apis_on_sort_and_doc_id"
 
   create_table "docs", :force => true do |t|
     t.string   "name"
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20121212122829) do
   end
 
   add_index "resources", ["doc_id"], :name => "index_resources_on_doc_id"
+  add_index "resources", ["sort", "doc_id"], :name => "index_resources_on_sort_and_doc_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",               :default => "", :null => false

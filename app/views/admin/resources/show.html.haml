@@ -32,4 +32,6 @@
           = link_to admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete
+          = render :partial => "sort_buttons", :as => :button_urls, :object => api_button_urls(api)
+          
   

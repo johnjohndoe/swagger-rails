@@ -27,6 +27,7 @@ class Admin::ApisController < Admin::BaseController
   end
 
   def update
+    @api.send params[:sort] if params[:sort]
     if @api.update_attributes params[:api]
       redirect_to admin_doc_resource_apis_path(@doc, @resource), :notice => "update success"
     else
@@ -55,7 +56,7 @@ class Admin::ApisController < Admin::BaseController
   end
 
   def clean_parameters_attributes
-    if params[:api][:parameters_attributes]
+    if params[:api] && params[:api][:parameters_attributes]
       params[:api][:parameters_attributes] = params[:api][:parameters_attributes].select do |k, v|
         v[:name].present?
       end

@@ -12,6 +12,8 @@ class Api < ActiveRecord::Base
 
   before_validation :sync_doc_id
 
+  include ActsAsSortable
+
   def full_path
     "#{doc.base_path}#{path}"
   end
