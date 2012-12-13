@@ -1,10 +1,9 @@
 class ForeignDomain::Route
   def self.matches?(request)
-    case request.host
-    when nil, Setting.host, 'localhost'
+    if ([nil, 'localhost', Setting.host] + Setting.multiple_hosts).include?(request.host)
       false
-    else
+    else 
       true
-    end    
+    end
   end
 end
