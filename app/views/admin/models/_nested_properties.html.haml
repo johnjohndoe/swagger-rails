@@ -1,0 +1,9 @@
+.edit_parameter
+  = form.fields_for :properties do |form_property|
+    = render :partial => "form_property", :object => form_property
+.new_parameter
+  = form.fields_for :properties, form.object.properties.build do |form_property|
+    = render :partial => "form_property", :object => form_property
+  = form.link_to_add :properties, :class => "btn btn-mini" do
+    %i.icon-plus
+    Add Property

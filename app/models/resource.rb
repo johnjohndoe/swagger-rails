@@ -7,11 +7,16 @@ class Resource < ActiveRecord::Base
   include ActsAsSortable
 
   def to_json
+    models_json = {}
+    doc.models.each do |model|
+      models_json[model.name] = model.to_json
+    end
     {
       :apiVersion => doc.version,
       :base_path => doc.base_path,
       :swaggerVersion => "1.1",
-      :apis => apis.map{ |api| api.to_json }
+      :apis => apis.map{ |api| api.to_json },
+      :models => models_json
     }
   end
 
