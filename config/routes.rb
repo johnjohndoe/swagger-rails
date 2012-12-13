@@ -10,12 +10,13 @@ SwaggerRails::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'admin/docs#index'
 
-  resources :docs do
-    resources :resources
+  constraints(ForeignDomain::Route) do
+    root :to => "docs#show", :format => :json
+    get "/:name", :controller => "resources", :action => 'show'
   end
   
+  root :to => 'admin/docs#index'
 
   namespace :admin do
     root :to => "docs#index"

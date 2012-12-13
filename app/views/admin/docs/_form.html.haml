@@ -3,6 +3,7 @@
   = form.input :description
   = form.input :api_version, :placeholder => "1.1.2"
   = form.input :base_path, :placeholder => "http://exmaple.com/api"
+  = form.input :fqdn, :placeholder => "api.example.com"
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", request.env["HTTP_REFERER"] || admin_docs, :class => "btn"
