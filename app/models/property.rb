@@ -1,6 +1,5 @@
 class Property < ActiveRecord::Base
   belongs_to :model
-  validates_presence_of :model_id
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => [:model_id]
 
