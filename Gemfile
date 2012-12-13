@@ -43,7 +43,11 @@ gem "kaminari"
 # gem "turbo-sprockets-rails3"
 
 group :assets do
-  gem "compass-rails"
+  # gem "compass-rails"
+  gem 'uglifier', '>= 1.0.3'
+
+  gem 'execjs'
+  gem 'therubyracer'
 end
 
 group :development do 
