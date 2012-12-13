@@ -4,3 +4,5 @@
 
 = link_to_create "Create Resource", new_admin_doc_resource_path(@doc)
 
+= render :partial => "list", :object => @doc.resources, :as => :resources
+

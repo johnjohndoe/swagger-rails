@@ -25,7 +25,11 @@ class Doc < ActiveRecord::Base
   end
 
   def host_to_json
-    fqdn || "#{subdomain}.#{Setting.host}"
+    fqdn.present? ? fqdn : "#{subdomain}.#{Setting.host}"
+  end
+
+  def preview_link
+    "http://#{host_to_json}"
   end
 
   private
