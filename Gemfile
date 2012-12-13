@@ -26,9 +26,9 @@ gem 'devise'
 gem "seo_helper", "~> 1.0"
 gem "open_graph_helper"
 
-gem "rmagick"
-gem "carrierwave"
-gem "carrierwave-meta"
+# gem "rmagick"
+# gem "carrierwave"
+# gem "carrierwave-meta"
 
 gem "settingslogic"
 
@@ -37,10 +37,10 @@ gem "bootstrap_helper", ">= 2.1.2"
 gem "simple_form", "2.0.3"
 gem "kaminari"
 
-gem "high_voltage"
+# gem "high_voltage"
 
-gem "airbrake"
-gem "turbo-sprockets-rails3"
+# gem "airbrake"
+# gem "turbo-sprockets-rails3"
 
 group :assets do
   gem "compass-rails"
@@ -49,6 +49,8 @@ end
 group :development do 
   gem "capistrano"
   gem "capistrano-ext"
+  gem "capistrano_colors"
+  gem 'rvm-capistrano'
   # gem "cape"
   # gem "magic_encoding"
   # gem "annotate"
