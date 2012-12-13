@@ -1,6 +1,7 @@
 class Admin::ResourcesController < Admin::BaseController
   before_filter :get_doc
   before_filter :get_resource, :except => [:index]
+  before_filter{ breadcrumb_resource(@resource) }
 
   def index
   end

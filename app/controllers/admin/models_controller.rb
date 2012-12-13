@@ -2,6 +2,7 @@ class Admin::ModelsController < Admin::BaseController
   before_filter :clean_nested_attributes
   before_filter :get_doc
   before_filter :get_model, :except => [:index]
+  before_filter{ breadcrumb_model(@model) }
 
   def index
   end

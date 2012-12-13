@@ -24,7 +24,7 @@
   <div class="container">
 
       <%= notice_message %>
-
+      <%= render_crumbs :format => :html_list, :ul_class => :breadcrumb, :separator => " > " %>
       <div class="content">
         <div class="row">
           <%= yield %>

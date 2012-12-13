@@ -1,5 +1,6 @@
 class Admin::DocsController < Admin::BaseController
   before_filter :get_doc, :except => [:index]
+  before_filter{ breadcrumb_doc(@doc) }
 
   def index
     @docs = current_user.docs
@@ -42,4 +43,5 @@ class Admin::DocsController < Admin::BaseController
   def get_doc
     @doc = params[:id] ? current_user.docs.find(params[:id]) : current_user.docs.new(params[:doc])
   end
+
 end

@@ -3,6 +3,7 @@ class Admin::ApisController < Admin::BaseController
   before_filter :get_doc
   before_filter :get_resource
   before_filter :get_api, :except => [:index]
+  before_filter{ breadcrumb_api(@api) }
 
   def index
     render "admin/resources/show"
