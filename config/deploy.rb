@@ -1,30 +1,31 @@
 # -*- encoding : utf-8 -*-
-default_environment["PATH"] = "/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin"
+# default_environment["PATH"] = "/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin"
 
-set :application, "swagger-rails"
-set :repository,  "git@github.com:example/#{application}.git"
-set :deploy_to, "/home/apps/#{application}"
+begin
+  require 'capistrano_colors'
+rescue LoadError
+  puts "`gem install capistrano_colors` to get output more userfriendly."
+end
 
-set :branch, "master"
+require "rvm/capistrano"
+set :rvm_type, :system
+
+require 'capistrano/ext/multistage'
+set :stages,        %w(production)
+set :default_stage, "production"
+
+require 'bundler/capistrano'
+
 set :scm, :git
 
-set :user, "apps"
-set :group, "apps"
-
-set :deploy_to, "/home/apps/#{application}"
-set :runner, "apps"
-set :deploy_via, :remote_cache
+# set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 
-role :web, "swagger-rails.com"                          # Your HTTP server, Apache/etc
-role :app, "swagger-rails.com"                         # This may be the same as your `Web` server
-role :db,  "swagger-rails.com"   , :primary => true # This is where Rails migrations will run
-
-set :deploy_env, "production"
-set :rails_env, "production"
 set :scm_verbose, true
 set :use_sudo, false
 
+# from https://github.com/AF83/capistrano-af83/blob/master/lib/capistrano/af83/deploy/assets.rb
+set :assets_dependencies, %w(app/assets lib/assets vendor/assets Gemfile.lock config/routes.rb)
 
 namespace :deploy do
 
@@ -32,6 +33,31 @@ namespace :deploy do
   task :restart, :roles => [:web], :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
   end
+
+  namespace :assets do
+
+    desc <<-DESC
+      Run the asset precompilation rake task. You can specify the full path \
+      to the rake executable by setting the rake variable. You can also \
+      specify additional environment variables to pass to rake via the \
+      asset_env variable. The defaults are:
+
+        set :rake,      "rake"
+        set :rails_env, "production"
+        set :asset_env, "RAILS_GROUPS=assets"
+        set :assets_dependencies, fetch(:assets_dependencies) + %w(config/locales/js)
+    DESC
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision) rescue nil
+      if !from || capture("cd #{latest_release} && #{source.local.log(from)} #{assets_dependencies.join ' '} | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+    end
+
+  end
+
 end
 
 
@@ -42,7 +68,7 @@ namespace :my_tasks do
     
     symlink_hash = {
       "#{shared_path}/config/database.yml"   => "#{release_path}/config/database.yml",
-      "#{shared_path}/config/s3.yml"   => "#{release_path}/config/s3.yml",
+      "#{shared_path}/config/config.yml"   => "#{release_path}/config/config.yml",
       "#{shared_path}/uploads"              => "#{release_path}/public/uploads",
     }
 
@@ -63,4 +89,4 @@ namespace :remote_rake do
 end
 
 after "deploy:finalize_update", "my_tasks:symlink"
-
+after "deploy", "deploy:cleanup"
