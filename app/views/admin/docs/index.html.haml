@@ -1,5 +1,5 @@
 %h1="Doc list"
-= link_to "Create", new_admin_doc_path, :class => "btn btn-primary"    
+= link_to_create "Create Doc", new_admin_doc_path
 
 %table.table.table-hover
   %thead
@@ -13,19 +13,10 @@
     - @docs.each do |doc|
       %tr
         %td= doc.id
-        %td= doc.name
+        %td= link_to doc.name, admin_doc_path(doc)
         %td= doc.description
         %td= doc.version
         %td.last
-          = link_to admin_doc_path(doc), :class => "btn btn-mini" do
-            %i.icon-info-sign
-            Resources
-          = link_to admin_doc_models_path(doc), :class => "btn btn-mini" do
-            %i.icon-info-sign
-            Models
-          = link_to edit_admin_doc_path(doc), :class => "btn btn-mini" do
-            %i.icon-pencil
-            Edit
           = link_to admin_doc_path(doc), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete

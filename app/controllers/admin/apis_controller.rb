@@ -29,7 +29,7 @@ class Admin::ApisController < Admin::BaseController
   def update
     @api.send params[:sort] if params[:sort]
     if @api.update_attributes params[:api]
-      redirect_to admin_doc_resource_apis_path(@doc, @resource), :notice => "update success"
+      redirect_to(params[:redirect_to] || admin_doc_resource_apis_path(@doc, @resource), :notice => "update success")
     else
       flash[:error] = @api.errors.full_messages
       render :edit

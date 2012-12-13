@@ -1,0 +1,9 @@
+%h1
+  = doc.name
+  = link_to edit_admin_doc_path(@doc), :class => "btn btn-mini" do
+    %i.icon-pencil
+.doc_info
+  = render_list do |li|
+    - li << "Base path: #{doc.base_path}"
+    - li << "description: #{doc.description}" if doc.description.present?
+    - li << "version: #{doc.version}"

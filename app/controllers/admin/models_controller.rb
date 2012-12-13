@@ -4,7 +4,6 @@ class Admin::ModelsController < Admin::BaseController
   before_filter :get_model, :except => [:index]
 
   def index
-    @models = @doc.models
   end
 
   def show

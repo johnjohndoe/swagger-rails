@@ -19,6 +19,7 @@ $(document).ready(function() {
       }
     })
   });
+
 });
 
 $.fn.selectRange = function(start, end) { 

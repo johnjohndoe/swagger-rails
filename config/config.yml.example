@@ -1,5 +1,5 @@
 defaults: &defaults
-  app_name: "swagger-rails"
+  app_name: "Swagger-rails"
   domain: "http://swagger-rails.dev"    
   facebook_app_id: "267188576687915"
   facebook_secret: "84f72292e1f6b299f4a668f12ed1a7f2"

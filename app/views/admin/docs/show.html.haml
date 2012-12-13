@@ -1,37 +1,11 @@
-%h1= @doc.base_path
-.doc_info
-  = render_list do |li|
-    - li << "version: #{@doc.version}"
-    - li << "name: #{@doc.name}"
-    - li << "description: #{@doc.description}"
+= render :partial => "info", :object => @doc, :as => :doc
+  
+%h2= "Resources List"
+= link_to_create "Create Resource", new_admin_doc_resource_path(@doc)
+= render :partial => "admin/resources/list", :as => :resources, :object => @doc.resources.limit(5)
+= link_to_more_resources @doc, 5
 
-= link_to "Back", admin_docs_path, :class => "btn"
-= link_to edit_admin_doc_path(@doc), :class => "btn" do
-  %i.icon-pencil
-  Edit
-= link_to "Create Resource", new_admin_doc_resource_path(@doc), :class => "btn btn-primary"    
-
-%table.table.table-hover
-  %thead
-    %tr
-      %th="#"
-      %th="name"
-      %th="sort"
-      %th.last=""
-  %tbody
-    - @doc.resources.each do |resource|
-      %tr
-        %td= resource.id
-        %td= resource.name
-        %td= resource.sort
-        %td.last
-          = link_to admin_doc_resource_path(@doc, resource), :class => "btn btn-mini" do
-            %i.icon-info-sign
-            Apis
-          = link_to edit_admin_doc_resource_path(@doc, resource), :class => "btn btn-mini" do
-            %i.icon-pencil
-            Edit
-          = link_to admin_doc_resource_path(@doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
-            %i.icon-white.icon-remove
-            Delete
-          = render :partial => "sort_buttons", :as => :button_urls, :object => resource_button_urls(resource)
+%h2= "Models List"
+= link_to_create "Model Resource", new_admin_doc_model_path(@doc)
+= render :partial => "admin/models/list", :as => :models, :object => @doc.models.limit(5)
+= link_to_more_models @doc, 5

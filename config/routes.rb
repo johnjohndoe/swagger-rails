@@ -18,6 +18,7 @@ SwaggerRails::Application.routes.draw do
   
 
   namespace :admin do
+    root :to => "docs#index"
     resources :docs do
       resources :models
       resources :resources do
