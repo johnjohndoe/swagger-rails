@@ -24,11 +24,11 @@ class Doc < ActiveRecord::Base
     }
   end
 
-  private
-
   def host_to_json
     fqdn || "#{subdomain}.#{Setting.host}"
   end
+
+  private
 
   def generate_unique_subdomain
     begin

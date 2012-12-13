@@ -12,7 +12,7 @@ SwaggerRails::Application.routes.draw do
 
 
   constraints(ForeignDomain::Route) do
-    root :to => "docs#show", :format => :json
+    root :to => "docs#show"
     get "/:name", :controller => "resources", :action => 'show'
   end
   

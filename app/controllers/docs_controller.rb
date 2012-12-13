@@ -4,7 +4,7 @@ class DocsController < ApplicationController
 
   def show
     respond_to do |f|
-      f.html
+      f.html { render :layout => false}
       f.json { render :json => @doc.to_json }
     end
   end
