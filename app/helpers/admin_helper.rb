@@ -14,14 +14,21 @@ module AdminHelper
     }
   end
 
+  def render_data_type_selector(doc, options = {})
+    options[:html] ||= {}
+    options[:html][:class] ||= "input-small"
+    options[:html][:data] = { :type => "data-types-selectable", :to => options[:to], :autohide => options[:auto_hide] }
+    content_tag(:select, options[:html]) do
+      collections = [["-- Normal -- ", Parameter::DATA_TYPES[0..-4]], ["-- Models --", doc.models.map{ |model| model.name } + ["custom"] ], ["-- Containers --", Parameter::DATA_TYPES[-3..-1]] ]
+      options_for_select([["-- Data Type --", ""]]) + grouped_options_for_select(collections, :selected => options[:selected])
+    end
+  end
+
   def render_data_type_form(form, doc)
     content_tag :span do 
       strs = []
-      strs << content_tag(:select, :class => "input-small", :data => { :type => "selector" }) do
-        collections = Parameter::DATA_TYPES + doc.models.map{ |model| model.name }
-        options_for_select(collections, :selected => form.object.data_type)
-      end
-      strs << form.input_field(:data_type, :class => "input-small", :as => :string, :data => { :type => "data-types-select"}, :placeholder => "data type")
+      strs << render_data_type_selector(doc, :selected => form.object.data_type, :to => "[data-type=data-types-value]")
+      strs << form.input_field(:data_type, :class => "input-small", :as => :string, :data => { :type => "data-types-value"}, :placeholder => "data type")
       raw strs.join("")
     end
   end

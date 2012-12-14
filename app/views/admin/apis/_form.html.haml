@@ -4,7 +4,11 @@
   = form.input :path
   = form.input :summary
   = form.input :note
-  = form.input :response_class
+  .control-group
+    %label.control-label= "Response Data Type"
+    .controls
+      = form.input_field :response_class, :id => "response_class"
+      = render_data_type_selector api.resource.doc, :to => "#response_class", :autohide => false
   .control-group
     %label.control-label= "Error Responses"
     .controls

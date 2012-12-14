@@ -3,7 +3,7 @@ class Parameter < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => [ :api_id ]
   PARAM_TYPES = [:path, :query, :body, :header]
-  DATA_TYPES = [:string, :byte, :boolean, :int, :long, :float, :double, :Date, :List, :Set, :Array]
+  DATA_TYPES = [:string, :byte, :boolean, :int, :long, :float, :double, :Date, :Time, :DateTime, :List, :Set, :Array]
 
   def to_json
     {
