@@ -14,7 +14,7 @@ $(document).ready(function() {
 $.fn.dataTypeSelectable = function() {
   var selector = $(this);
   var auto_hide = selector.attr("data-autohide");
-  auto_hide = (auto_hide == "true" || auto_hide == "" || !auto_hide)
+  auto_hide = (auto_hide == "true" || auto_hide == "" || auto_hide == "null" || !auto_hide);
   var data_type = $(selector.attr("data-to"), selector.parent());
   selector.find("option").each(function(){
     if(auto_hide && $(this).val() == data_type.val()) {
