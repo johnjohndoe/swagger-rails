@@ -20,6 +20,7 @@ class Doc < ActiveRecord::Base
       :apiVersion => version,
       :swaggerVersion => "1.1",
       :basePath => "http://#{host_to_json}",
+      :requestPath => request_path,
       :apis => resources.map{ |resource| { :path => "/#{resource.name}.{format}", :description => resource.description } }
     }
   end

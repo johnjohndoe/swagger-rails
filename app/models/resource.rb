@@ -13,7 +13,7 @@ class Resource < ActiveRecord::Base
     end
     {
       :apiVersion => doc.version,
-      :base_path => doc.base_path,
+      :basePath => doc.base_path,
       :swaggerVersion => "1.1",
       :apis => apis.map{ |api| api.to_json },
       :models => models_json

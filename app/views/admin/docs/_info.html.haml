@@ -8,3 +8,6 @@
     - li << "Base path: #{doc.base_path}"
     - li << "description: #{doc.description}" if doc.description.present?
     - li << "version: #{doc.version}"
+    - if doc.request_path.present?
+      - li << "API testing url: #{doc.request_path}"
+      - li << "API testing key: #{doc.api_key}" if doc.api_key.present?

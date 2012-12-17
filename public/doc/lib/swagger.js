@@ -66,6 +66,9 @@
           _this.basePath = _this.discoveryUrl.substring(0, _this.discoveryUrl.lastIndexOf('/'));
           log('derived basepath from discoveryUrl as ' + _this.basePath);
         }
+        if ((response.requestPath != null) && jQuery.trim(response.requestPath).length > 0) {
+          _this.requestPath = response.requestPath ;
+        }
         _this.resources = {};
         _this.resourcesArray = [];
         if (response.resourcePath != null) {
@@ -193,6 +196,7 @@
       parts = this.path.split("/");
       this.name = parts[parts.length - 1].replace('.{format}', '');
       this.basePath = this.api.basePath;
+      this.requestPath = resourceObj.requestPath || this.api.requestPath;
       this.operations = {};
       this.operationsArray = [];
       this.modelsArray = [];
@@ -570,7 +574,7 @@
       if (includeApiKey == null) {
         includeApiKey = true;
       }
-      url = this.resource.basePath + this.pathJson();
+      url = this.resource.requestPath + this.pathJson();
       _ref = this.parameters;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         param = _ref[_i];
