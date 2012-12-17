@@ -47,6 +47,7 @@
             window.swaggerUi = new SwaggerUi({
                 discoveryUrl:"http://<%= @doc.host_to_json%>?foramt=json",
                 apiKey:"<%= @doc.api_key %>",
+                apiKeyName: "<%= @doc.api_key_name %>",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
                 supportedSubmitMethods: ['get', 'post', 'put'],
