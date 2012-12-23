@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217032925) do
+ActiveRecord::Schema.define(:version => 20121223103619) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121217032925) do
 
   create_table "docs", :force => true do |t|
     t.string   "name"
+    t.string   "caption"
     t.text     "description"
     t.integer  "user_id"
     t.string   "api_version"
