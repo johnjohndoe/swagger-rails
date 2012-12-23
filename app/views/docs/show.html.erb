@@ -98,7 +98,7 @@
             <div class="heading_with_menu">
                 <h1><%= @doc.caption %></h1>
             </div>
-            <%= raw @doc.description %>
+            <%= raw auto_link(simple_format(@doc.description), :html => { :target => '_blank' }) %>
         </div>
     </div>
 </div>

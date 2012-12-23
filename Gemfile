@@ -97,3 +97,4 @@ gem 'haml'
 gem 'nested_form', "~> 0.3.1"
 gem 'acts_as_list'
 gem 'crummy', "~> 1.6.0"
+gem 'rails_autolink'

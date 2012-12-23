@@ -137,6 +137,8 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails_autolink (1.0.9)
+      rails (~> 3.1)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -220,6 +222,7 @@ DEPENDENCIES
   omniauth-facebook
   open_graph_helper
   rails (= 3.2.8)
+  rails_autolink
   rspec
   rspec-rails
   rvm-capistrano
