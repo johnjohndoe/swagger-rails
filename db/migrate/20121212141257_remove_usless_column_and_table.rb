@@ -1,6 +1,6 @@
 class RemoveUslessColumnAndTable < ActiveRecord::Migration
   def up
-    # remove_column :apis, :nickname
+    remove_column :apis, :nickname
     drop_table :operations
   end
 
