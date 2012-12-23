@@ -12,6 +12,7 @@ class Resource < ActiveRecord::Base
       models_json[model.name] = model.to_json
     end
     {
+      :id => id,
       :apiVersion => doc.version,
       :basePath => doc.base_path,
       :swaggerVersion => "1.1",

@@ -319,7 +319,7 @@ function program9(depth0,data) {
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "httpMethod", { hash: {} }); }
   buffer += escapeExpression(stack1) + " operation' id='";
   foundHelper = helpers.resourceName;
-  stack1 = foundHelper || depth0.resourceName;
+  stack1 = foundHelper || depth0.resourceId;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "resourceName", { hash: {} }); }
   buffer += escapeExpression(stack1) + "_";
@@ -339,7 +339,7 @@ function program9(depth0,data) {
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "number", { hash: {} }); }
   buffer += escapeExpression(stack1) + "'>\n            <div class='heading'>\n                <h3>\n                  <span class='http_method'>\n                    <a href='#!/";
   foundHelper = helpers.resourceName;
-  stack1 = foundHelper || depth0.resourceName;
+  stack1 = foundHelper || depth0.resourceId;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "resourceName", { hash: {} }); }
   buffer += escapeExpression(stack1) + "/";
@@ -364,7 +364,7 @@ function program9(depth0,data) {
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "httpMethod", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</a>\n                  </span>\n                  <span class='path'>\n                    <a href='#!/";
   foundHelper = helpers.resourceName;
-  stack1 = foundHelper || depth0.resourceName;
+  stack1 = foundHelper || depth0.resourceId;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "resourceName", { hash: {} }); }
   buffer += escapeExpression(stack1) + "/";
@@ -389,7 +389,7 @@ function program9(depth0,data) {
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "path", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</a>\n                  </span>\n                </h3>\n                <ul class='options'>\n                    <li>\n                    <a href='#!/";
   foundHelper = helpers.resourceName;
-  stack1 = foundHelper || depth0.resourceName;
+  stack1 = foundHelper || depth0.resourceId;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "resourceName", { hash: {} }); }
   buffer += escapeExpression(stack1) + "/";
@@ -415,7 +415,7 @@ function program9(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "</a>\n                    </li>\n                </ul>\n            </div>\n            <div class='content' id='";
   foundHelper = helpers.resourceName;
-  stack1 = foundHelper || depth0.resourceName;
+  stack1 = foundHelper || depth0.resourceId;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "resourceName", { hash: {} }); }
   buffer += escapeExpression(stack1) + "_";
@@ -1034,42 +1034,42 @@ templates['resource'] = template(function (Handlebars,depth0,helpers,partials,da
 
   buffer += "<div class='heading'>\n    <h2>\n        <a href='#!/";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "' onclick=\"Docs.toggleEndpointListForResource('";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "');\">/";
+  buffer += escapeExpression(stack1) + "');\">";
   foundHelper = helpers.name;
   stack1 = foundHelper || depth0.name;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "</a>\n    </h2>\n    <ul class='options'>\n        <li>\n            <a href='#!/";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "' id='endpointListTogger_";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "'\n               onclick=\"Docs.toggleEndpointListForResource('";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "');\">Show/Hide</a>\n        </li>\n        <li>\n            <a href='#' onclick=\"Docs.collapseOperationsForResource('";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "'); return false;\">\n                List Operations\n            </a>\n        </li>\n        <li>\n            <a href='#' onclick=\"Docs.expandOperationsForResource('";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "'); return false;\">\n                Expand Operations\n            </a>\n        </li>\n        <li>\n            <a href='";
@@ -1079,7 +1079,7 @@ templates['resource'] = template(function (Handlebars,depth0,helpers,partials,da
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "url", { hash: {} }); }
   buffer += escapeExpression(stack1) + "'>Raw</a>\n        </li>\n    </ul>\n</div>\n<ul class='endpoints' id='";
   foundHelper = helpers.name;
-  stack1 = foundHelper || depth0.name;
+  stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
   buffer += escapeExpression(stack1) + "_endpoint_list' style='display:none'>\n\n</ul>\n";
@@ -1345,7 +1345,7 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
       resourceView = new ResourceView({
         model: resource,
         tagName: 'li',
-        id: 'resource_' + resource.name,
+        id: 'resource_' + resource.id,
         className: 'resource'
       });
       return $('#resources').append(resourceView.render().el);
@@ -1689,7 +1689,7 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
 
     OperationView.prototype.toggleOperationContent = function() {
       var elem;
-      elem = $('#' + this.model.resourceName + "_" + this.model.nickname + "_" + this.model.httpMethod + "_" + this.model.number + "_content");
+      elem = $('#' + this.model.resourceId + "_" + this.model.nickname + "_" + this.model.httpMethod + "_" + this.model.number + "_content");
       if (elem.is(':visible')) {
         return Docs.collapseOperation(elem);
       } else {

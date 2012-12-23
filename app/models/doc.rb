@@ -21,7 +21,7 @@ class Doc < ActiveRecord::Base
       :swaggerVersion => "1.1",
       :basePath => "http://#{host_to_json}",
       :requestPath => request_path,
-      :apis => resources.map{ |resource| { :path => "/#{resource.name}.{format}", :description => resource.description } }
+      :apis => resources.map{ |resource| { :id => resource.id, :path => "/#{resource.name}.{format}", :description => resource.description } }
     }
   end
 

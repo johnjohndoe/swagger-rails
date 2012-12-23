@@ -197,6 +197,7 @@
       this.name = parts[parts.length - 1].replace('.{format}', '');
       this.basePath = this.api.basePath;
       this.requestPath = resourceObj.requestPath || this.api.requestPath;
+      this.id = resourceObj.id;
       this.operations = {};
       this.operationsArray = [];
       this.modelsArray = [];
@@ -447,6 +448,7 @@
       this.httpMethod = this.httpMethod.toLowerCase();
       this.isGetMethod = this.httpMethod === "get";
       this.resourceName = this.resource.name;
+      this.resourceId = this.resource.id;
       if (((_ref = this.responseClass) != null ? _ref.toLowerCase() : void 0) === 'void') {
         this.responseClass = void 0;
       }
