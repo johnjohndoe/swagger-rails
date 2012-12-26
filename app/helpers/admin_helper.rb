@@ -33,6 +33,10 @@ module AdminHelper
     end
   end
 
+  def hidden_input_redirect_to
+    request.env["HTTP_REFERER"].present? ? tag("input", :type => :hidden, :name => :redirect_to, :value => request.env["HTTP_REFERER"]) : ""
+  end
+
   def link_to_create(name, url)
     link_to name, url, :class => "btn btn-primary"
   end

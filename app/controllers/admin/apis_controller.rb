@@ -20,7 +20,7 @@ class Admin::ApisController < Admin::BaseController
 
   def create
     if @api.save
-      redirect_to admin_doc_resource_apis_path(@doc, @resource), :notice => "create success"
+      redirect_to(params[:redirect_to] || admin_doc_resource_apis_path(@doc, @resource), :notice => "create success")
     else
       flash[:error] = @api.errors.full_messages
       render :new

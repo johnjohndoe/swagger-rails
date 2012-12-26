@@ -17,7 +17,7 @@ class Admin::DocsController < Admin::BaseController
 
   def create
     if @doc.save
-      redirect_to admin_doc_path(@doc), :notice => "create success"
+      redirect_to(params[:redirect_to] || admin_doc_path(@doc), :notice => "create success")
     else
       flash[:error] = @doc.errors.full_messages
       render :new
@@ -26,7 +26,7 @@ class Admin::DocsController < Admin::BaseController
 
   def update
     if @doc.update_attributes params[:doc]
-      redirect_to admin_doc_path(@doc), :notice => "update success"
+      redirect_to(params[:redirect_to] || admin_doc_path(@doc), :notice => "update success")
     else
       flash[:error] = @doc.errors.full_messages
       render :edit

@@ -19,3 +19,4 @@
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", request.env["HTTP_REFERER"] ||admin_doc_resource_apis_path(api.resource.doc, api.resource), :class => "btn"
+= hidden_input_redirect_to

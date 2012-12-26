@@ -5,4 +5,5 @@
   = form.input :sort
 .form-actions
   = form.submit :class => "btn btn-primary"
-  = link_to "Cancel", request.env["HTTP_REFERER"] ||admin_doc_resources_path(resource.doc), :class => "btn"
+  = link_to "Cancel", request.env["HTTP_REFERER"] || admin_doc_resources_path(resource.doc), :class => "btn"
+= hidden_input_redirect_to

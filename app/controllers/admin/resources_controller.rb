@@ -17,7 +17,7 @@ class Admin::ResourcesController < Admin::BaseController
 
   def create
     if @resource.save
-      redirect_to admin_doc_resource_path(@doc, @resource), :notice => "create success"
+      redirect_to(params[:redirect_to] || admin_doc_resource_path(@doc, @resource), :notice => "create success")
     else
       flash[:error] = @resource.errors.full_messages
       render :new

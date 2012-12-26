@@ -18,7 +18,7 @@ class Admin::ModelsController < Admin::BaseController
 
   def create
     if @model.save
-      redirect_to admin_doc_models_path(@doc), :notice => "create success"
+      redirect_to(params[:redirect_to] || admin_doc_models_path(@doc), :notice => "create success")
     else
       flash[:error] = @model.errors.full_messages
       render :new
@@ -28,7 +28,7 @@ class Admin::ModelsController < Admin::BaseController
   def update
     @model.send params[:sort] if params[:sort]
     if @model.update_attributes params[:model]
-      redirect_to admin_doc_models_path(@doc), :notice => "update success"
+      redirect_to(params[:redirect_to] || admin_doc_models_path(@doc), :notice => "update success")
     else
       flash[:error] = @model.errors.full_messages
       render :edit

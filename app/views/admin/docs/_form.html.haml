@@ -11,3 +11,4 @@
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", request.env["HTTP_REFERER"] || admin_docs, :class => "btn"
+= hidden_input_redirect_to
