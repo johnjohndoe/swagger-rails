@@ -28,16 +28,24 @@ Features
 * Auto generating subdomain url for preview API template.
 * Custom to setting foreign domain (FQDN).
 
+Javascript hacks on swagger
+===========================
+
+* Separating base path and "Try it" host (request path). See commit 0529be2dcbe0f68dca6c358ddc00dd73b8310bb4 .
+* Fixing anchor of resource will not work with special character. See Commit 603a021016ff9080630667bece80a00a1e6da586 .
+
 TODOs
 =====
 
-* Revisioning history by API version
-* Sharing to other user for management
-* Draft data for new API version
-* New API version release notice (Subscribed emails, twitter...etc)
-* More friendly backend UI
+* Export / Import doc data.
+* Sharing to other users for management.
+* More friendly backend UI.
+* I18n for multiple language.
+* Revisioning history by API version.
+* Draft data set for new API version.
+* New API version release notice (Subscribed emails, twitter...etc).
 
 Contribution
 ============
 
-* Welcome to fork it :p
+* Welcome to fork :p
