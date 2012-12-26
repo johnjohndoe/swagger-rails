@@ -14,7 +14,7 @@
       %tr
         %td= doc.id
         %td= link_to doc.name, admin_doc_path(doc)
-        %td= doc.description
+        %td= truncate(doc.description, :length => 30)
         %td= doc.version
         %td.last
           = link_to admin_doc_path(doc), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
