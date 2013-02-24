@@ -58,7 +58,7 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     crummy (1.6.0)
-    devise (2.1.2)
+    devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -212,7 +212,7 @@ DEPENDENCIES
   capistrano_colors
   coffee-rails (~> 3.2.1)
   crummy (~> 1.6.0)
-  devise
+  devise (~> 2.2.3)
   execjs
   factory_girl_rails
   haml
