@@ -19,5 +19,5 @@
 public/uploads
 vendor/bundler_gems
 config/database.yml
-config/config.yml
+config/setting.yml
 config/deploy/*.rb
