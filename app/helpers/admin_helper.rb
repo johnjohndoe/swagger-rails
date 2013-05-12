@@ -42,10 +42,10 @@ module AdminHelper
   end
 
   def link_to_more_resources(doc, limit)
-    link_to admin_doc_resources_path(doc) if doc.resources.size > limit
+    link_to("...more Resources...", admin_doc_resources_path(doc), :class => "") if doc.resources.size > limit
   end
 
   def link_to_more_models(doc, limit)
-    link_to admin_doc_models_path(doc) if doc.models.size > limit
+    link_to("...more Models...", admin_doc_models_path(doc), :class => "") if doc.models.size > limit
   end
 end
