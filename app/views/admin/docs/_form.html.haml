@@ -1,12 +1,12 @@
 .form-inputs
   = form.input :name, :placeholder => "Page title"
-  = form.input :caption, :placeholder => "Title of description"
+  = form.input :api_version, :placeholder => "1.1.2", :hint => "Your API version"
+  = form.input :request_path, :placeholder => "http://staging.api.exmaple.com", :hint => "URL for Try it out"
+  = form.input :api_key_name, :placeholder => "access_token", :hint => "API token key for Try it out"
+  = form.input :api_key, :placeholder => "1234", :hint => "API token for Try it out"
+  = form.input :caption, :hint => "Title text above description"
   = form.input :description
-  = form.input :api_version, :placeholder => "1.1.2"
-  = form.input :request_path, :placeholder => "url for API testing http://api.exmaple.com"
-  = form.input :api_key_name, :placeholder => "Querys key of API key"
-  = form.input :api_key, :placeholder => "API key for testing"
-  = form.input :fqdn, :placeholder => "api.example.com"
+  = form.input :fqdn, :placeholder => "api.example.com", :hint => "Your foreign domain to link this API doc page"
 .form-actions
   = form.submit :class => "btn btn-primary"
   = link_to "Cancel", request.env["HTTP_REFERER"] || admin_docs, :class => "btn"

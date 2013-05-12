@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512145751) do
+ActiveRecord::Schema.define(:version => 20130512170113) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(:version => 20130512145751) do
     t.string   "api_version"
     t.string   "request_path"
     t.string   "api_key"
-    t.string   "api_key_name", :default => "api_key"
+    t.string   "api_key_name", :default => "token"
     t.string   "fqdn"
     t.string   "subdomain"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "docs", ["fqdn"], :name => "index_docs_on_fqdn"
