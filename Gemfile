@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,7 +15,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -23,18 +23,10 @@ end
 gem 'jquery-rails'
 gem 'devise', '~> 2.2.3'
 
-gem "seo_helper", "~> 1.0"
-gem "open_graph_helper"
-
-# gem "rmagick"
-# gem "carrierwave"
-# gem "carrierwave-meta"
-
 gem "settingslogic"
 
 gem "anjlab-bootstrap-rails", ">= 2.1", :require => "bootstrap-rails"
-gem "bootstrap_helper", ">= 2.1.2"
-gem "simple_form", "2.0.3"
+gem "simple_form", "~> 2.1.0"
 gem "kaminari"
 
 # gem "high_voltage"
@@ -42,25 +34,11 @@ gem "kaminari"
 # gem "airbrake"
 # gem "turbo-sprockets-rails3"
 
-group :assets do
-  # gem "compass-rails"
-  gem 'uglifier', '>= 1.0.3'
-
-  gem 'execjs'
-  gem 'therubyracer', :platforms => :ruby
-end
-
 group :development do 
   gem "capistrano"
   gem "capistrano-ext"
   gem "capistrano_colors"
   gem 'rvm-capistrano'
-  # gem "cape"
-  # gem "magic_encoding"
-  # gem "annotate"
-  # gem "powder"
-  # gem "pry-nav"
-  # gem "pry-remote"
 end
 
 group :development, :test do 
@@ -94,7 +72,7 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'haml'
-gem 'nested_form', "~> 0.3.1"
+gem 'nested_form', "~> 0.3.2"
 gem 'acts_as_list'
 gem 'crummy', "~> 1.6.0"
 gem 'rails_autolink'

@@ -3,10 +3,11 @@
   = link_to edit_admin_doc_path(doc), :class => "btn btn-mini" do
     %i.icon-pencil
 .doc_info
-  = render_list do |li|
-    - li << "Preview: "+raw(link_to(doc.preview_link, doc.preview_link))
-    - li << "Base path: #{doc.base_path}"
-    - li << "description: #{doc.description}" if doc.description.present?
-    - li << "version: #{doc.version}"
+  %ul
+    %li= "Preview: "+raw(link_to(doc.preview_link, doc.preview_link))
+    %li= "Base path: #{doc.base_path}"
+    - if doc.description.present?
+      %li= "description: #{doc.description}"
+    %li= "version: #{doc.version}"
     - if doc.request_path.present?
-      - li << "API testing url format: #{doc.request_path}/{API Path}.json?#{doc.api_key_name}=#{doc.api_key}"
+      %li= "API testing url format: #{doc.request_path}/{API Path}.json?#{doc.api_key_name}=#{doc.api_key}"

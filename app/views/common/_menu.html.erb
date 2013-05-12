@@ -10,12 +10,10 @@
           <%= link_to(Setting.app_name, root_path , :class => "brand" )%>
 
           <div class="nav-collapse">
-      
-              <%= render_list :class => "nav" do |li|
-                li << link_to("Docs",admin_docs_path)
-              end %>
-              
-              <%= render :partial => "common/user_nav"%>
+            <ul class="nav">
+              <li><%= link_to("Docs",admin_docs_path) %></li>
+            </ul>  
+            <%= render :partial => "common/user_nav"%>
 
           </div>
     </div>
