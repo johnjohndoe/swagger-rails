@@ -9,9 +9,12 @@
     - models.each do |model|
       %tr
         %td= model.id
-        %td= link_to model.name, edit_admin_doc_model_path(model.doc, model)
+        %td= model.name
         %td= model.description
         %td.last
+          = link_to edit_admin_doc_model_path(model.doc, model), :class => "btn btn-mini" do
+            %i.icon.icon-pencil
+            Edit
           = link_to admin_doc_model_path(model.doc, model), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete

@@ -16,13 +16,15 @@
       %tr
         %td= api.id
         %td
-          = link_to edit_admin_doc_resource_api_path(@doc, @resource, api) do
-            = api.http_method
-            &nbsp;
-            = api.path
+          = api.http_method
+          &nbsp;
+          = api.path
         %td
           = render :partial => "sort_buttons", :as => :button_urls, :object => api_button_urls(api)
         %td.last
+          = link_to edit_admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini" do
+            %i.icon.icon-pencil
+            Edit
           = link_to admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete

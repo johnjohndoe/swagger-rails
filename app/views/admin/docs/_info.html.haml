@@ -4,7 +4,9 @@
     %i.icon-pencil
 .doc_info
   %ul
-    %li= "Preview: "+raw(link_to(doc.preview_link, doc.preview_link))
+    %li
+      = "Preview: "
+      = link_to(doc.preview_link, doc.preview_link)
     %li= "Base path: #{doc.base_path}"
     - if doc.description.present?
       %li= "description: #{doc.description}"

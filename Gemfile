@@ -39,6 +39,7 @@ group :development do
   gem "capistrano-ext"
   gem "capistrano_colors"
   gem 'rvm-capistrano'
+  gem 'venus'
 end
 
 group :development, :test do 

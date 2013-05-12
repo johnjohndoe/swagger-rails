@@ -17,6 +17,9 @@
         %td= truncate(doc.description, :length => 30)
         %td= doc.version
         %td.last
+          = link_to edit_admin_doc_path(doc), :class => "btn btn-mini" do
+            %i.icon.icon-pencil
+            Edit
           = link_to admin_doc_path(doc), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete
