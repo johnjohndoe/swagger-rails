@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223103619) do
+ActiveRecord::Schema.define(:version => 20130512145751) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20121223103619) do
     t.text     "description"
     t.integer  "user_id"
     t.string   "api_version"
-    t.string   "base_path"
     t.string   "request_path"
     t.string   "api_key"
     t.string   "api_key_name", :default => "api_key"

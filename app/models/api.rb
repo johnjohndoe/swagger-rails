@@ -16,10 +16,6 @@ class Api < ActiveRecord::Base
 
   include ActsAsSortable
 
-  def full_path
-    "#{doc.base_path}#{path}"
-  end
-
   def to_json
     { 
       :path => path,

@@ -7,7 +7,6 @@
     %li
       = "Preview: "
       = link_to(doc.preview_link, doc.preview_link)
-    %li= "Base path: #{doc.base_path}"
     - if doc.description.present?
       %li= "description: #{doc.description}"
     %li= "version: #{doc.version}"
