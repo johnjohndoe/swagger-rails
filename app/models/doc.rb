@@ -8,6 +8,8 @@ class Doc < ActiveRecord::Base
   belongs_to :user
   has_many :resources, :dependent => :destroy, :order => "sort ASC"
   has_many :models, :dependent => :destroy
+  has_many :doc_users
+  has_many :users, :through => :doc_users
 
   before_create :generate_unique_subdomain
 

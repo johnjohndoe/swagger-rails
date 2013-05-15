@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512170113) do
+ActiveRecord::Schema.define(:version => 20130515150235) do
 
   create_table "apis", :force => true do |t|
     t.integer  "resource_id"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20130512170113) do
   add_index "apis", ["resource_id"], :name => "index_apis_on_resource_id"
   add_index "apis", ["sort", "doc_id"], :name => "index_apis_on_sort_and_doc_id"
 
+  create_table "doc_users", :force => true do |t|
+    t.integer  "doc_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "doc_users", ["doc_id", "user_id"], :name => "index_doc_users_on_doc_id_and_user_id"
+  add_index "doc_users", ["doc_id"], :name => "index_doc_users_on_doc_id"
+  add_index "doc_users", ["user_id"], :name => "index_doc_users_on_user_id"
+
   create_table "docs", :force => true do |t|
     t.string   "name"
     t.string   "caption"
@@ -39,11 +50,12 @@ ActiveRecord::Schema.define(:version => 20130512170113) do
     t.string   "api_version"
     t.string   "request_path"
     t.string   "api_key"
-    t.string   "api_key_name", :default => "token"
+    t.string   "api_key_name",           :default => "token"
     t.string   "fqdn"
     t.string   "subdomain"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.integer  "cooperated_users_count", :default => 0
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   add_index "docs", ["fqdn"], :name => "index_docs_on_fqdn"
@@ -114,18 +126,19 @@ ActiveRecord::Schema.define(:version => 20130512170113) do
   add_index "resources", ["sort", "doc_id"], :name => "index_resources_on_sort_and_doc_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",               :default => "", :null => false
+    t.string   "email",                 :default => "", :null => false
     t.string   "name"
     t.string   "facebook_id"
-    t.string   "encrypted_password",  :default => "", :null => false
+    t.integer  "cooperated_docs_count", :default => 0
+    t.string   "encrypted_password",    :default => "", :null => false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       :default => 0
+    t.integer  "sign_in_count",         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
