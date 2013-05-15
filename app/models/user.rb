@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     return false if facebook_id
     true
   end
+
+  def owned?(doc)
+    doc.user_id == id
+  end
 end
