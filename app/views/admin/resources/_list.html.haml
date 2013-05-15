@@ -16,6 +16,7 @@
           = link_to edit_admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini" do
             %i.icon-pencil
             Edit
-          = link_to admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
-            %i.icon-white.icon-remove
-            Delete
+          - if can?(:destroy, resource)
+            = link_to admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+              %i.icon-white.icon-remove
+              Delete

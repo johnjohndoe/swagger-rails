@@ -1,6 +1,7 @@
 class Api < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :resource
+  delegate :doc, :to => :resource
   has_many :parameters, :dependent => :destroy
   accepts_nested_attributes_for :parameters, :allow_destroy => true
   has_many :error_responses, :dependent => :destroy

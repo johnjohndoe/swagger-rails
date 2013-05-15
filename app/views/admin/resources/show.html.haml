@@ -25,6 +25,7 @@
           = link_to edit_admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini" do
             %i.icon.icon-pencil
             Edit
-          = link_to admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
-            %i.icon-white.icon-remove
-            Delete
+          - if can?(:destroy, api)
+            = link_to admin_doc_resource_api_path(@doc, @resource, api), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+              %i.icon-white.icon-remove
+              Delete
