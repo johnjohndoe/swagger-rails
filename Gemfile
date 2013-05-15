@@ -77,3 +77,4 @@ gem 'nested_form', "~> 0.3.2"
 gem 'acts_as_list'
 gem 'crummy', "~> 1.6.0"
 gem 'rails_autolink'
+gem 'chosen-rails', '~> 0.9.11.2'

@@ -46,6 +46,10 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
+    chosen-rails (0.9.11.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -212,6 +216,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capistrano_colors
+  chosen-rails (~> 0.9.11.2)
   coffee-rails (~> 3.2.1)
   crummy (~> 1.6.0)
   devise (~> 2.2.3)
