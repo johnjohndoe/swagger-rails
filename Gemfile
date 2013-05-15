@@ -34,13 +34,7 @@ gem "kaminari"
 # gem "airbrake"
 # gem "turbo-sprockets-rails3"
 
-group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'capistrano_colors'
-  gem 'rvm-capistrano'
-  gem 'cape'
- 
+group :development do 
   gem "capistrano"
   gem "capistrano-ext"
   gem "capistrano_colors"
