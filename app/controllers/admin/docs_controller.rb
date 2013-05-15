@@ -1,9 +1,10 @@
 class Admin::DocsController < Admin::BaseController
-  before_filter :get_doc, :except => [:index]
+  before_filter :authenticate_and_find_doc!, :except => [:index]
   before_filter{ breadcrumb_doc(@doc) }
 
   def index
     @docs = current_user.docs
+    @cooperated_docs = current_user.cooperated_docs
   end
 
   def show
@@ -36,12 +37,6 @@ class Admin::DocsController < Admin::BaseController
   def destroy
     @doc.destroy
     redirect_to admin_docs_path, :notice => "delete success"
-  end
-
-  private
-
-  def get_doc
-    @doc = params[:id] ? current_user.docs.find(params[:id]) : current_user.docs.new(params[:doc])
   end
 
 end

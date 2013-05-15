@@ -1,6 +1,6 @@
 class Admin::ApisController < Admin::BaseController
   before_filter :clean_nested_attributes, :only => [:update, :create]
-  before_filter :get_doc
+  before_filter :authenticate_and_find_doc!
   before_filter :get_resource
   before_filter :get_api, :except => [:index]
   before_filter{ breadcrumb_api(@api) }
@@ -43,10 +43,6 @@ class Admin::ApisController < Admin::BaseController
   end
 
   private
-
-  def get_doc
-    @doc = current_user.docs.find(params[:doc_id])
-  end
 
   def get_resource
     @resource = @doc.resources.find params[:resource_id]

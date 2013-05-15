@@ -1,6 +1,6 @@
 class Admin::ModelsController < Admin::BaseController
   before_filter :clean_nested_attributes
-  before_filter :get_doc
+  before_filter :authenticate_and_find_doc!
   before_filter :get_model, :except => [:index]
   before_filter{ breadcrumb_model(@model) }
 
@@ -42,10 +42,6 @@ class Admin::ModelsController < Admin::BaseController
 
   private
 
-  def get_doc
-    @doc = current_user.docs.find(params[:doc_id])
-  end
-  
   def get_model
     @model = params[:id] ? @doc.models.find(params[:id]) : @doc.models.new(params[:model])
   end

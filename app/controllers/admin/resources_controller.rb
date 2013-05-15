@@ -1,5 +1,5 @@
 class Admin::ResourcesController < Admin::BaseController
-  before_filter :get_doc
+  before_filter :authenticate_and_find_doc!
   before_filter :get_resource, :except => [:index]
   before_filter{ breadcrumb_resource(@resource) }
 
@@ -41,10 +41,6 @@ class Admin::ResourcesController < Admin::BaseController
 
   private
 
-  def get_doc
-    @doc = current_user.docs.find(params[:doc_id])
-  end
-  
   def get_resource
     @resource = params[:id] ? @doc.resources.find(params[:id]) : @doc.resources.new(params[:resource])
   end

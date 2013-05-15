@@ -1,4 +1,4 @@
-%h1="Doc list"
+%h1="My Doc list"
 = link_to_create "Create Doc", new_admin_doc_path
 
 %table.table.table-hover
@@ -23,3 +23,5 @@
           = link_to admin_doc_path(doc), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
             %i.icon-white.icon-remove
             Delete
+
+= render :partial => "cooperated_docs", :as => :docs, :object => @cooperated_docs
