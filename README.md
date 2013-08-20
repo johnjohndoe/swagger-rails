@@ -31,8 +31,8 @@ Features
 Javascript hacks on swagger
 ===========================
 
-* Separating base path and "Try it" host (request path). See commit 0529be2dcbe0f68dca6c358ddc00dd73b8310bb4 .
-* Fixing anchor of resource will not work with special character. See Commit 603a021016ff9080630667bece80a00a1e6da586 .
+* Separating base path and "Try it" host (request path). See commit [0529be2dcbe0f68dca6c358ddc00dd73b8310bb4](https://github.com/marsz/swagger-rails/commit/0529be2dcbe0f68dca6c358ddc00dd73b8310bb4).
+* Fixing anchor of resource will not work with special character. See Commit [603a021016ff9080630667bece80a00a1e6da586](https://github.com/marsz/swagger-rails/commit/603a021016ff9080630667bece80a00a1e6da586).
 
 TODOs
 =====
